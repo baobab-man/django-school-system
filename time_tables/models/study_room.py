@@ -2,7 +2,10 @@ from django.db import models
 
 
 class StudyRoom(models.Model):
-    name = models.CharField(max_length=30, help_text='반이름')
+    name = models.CharField(
+        max_length=30,
+        help_text='반이름'
+    )
     homeroom_teacher = models.OneToOneField(
         'time_tables.Teacher',
         on_delete=models.SET_NULL,
