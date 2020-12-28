@@ -3,7 +3,7 @@ from time_tables.models import Subject
 
 
 def create_subjects():
-    subject_choices = Subject.SUBJECT_CHOICES
+    subject_choices = Subject.SubjectName.choices
     subject_names = [choice[1] for choice in subject_choices]
     print(subject_names)
 
