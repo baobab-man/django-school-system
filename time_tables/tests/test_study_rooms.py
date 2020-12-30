@@ -31,4 +31,3 @@ class TestStudyRooms(TestCase):
         create_study_rooms(1, 2)
         study_rooms = StudyRoom.objects.all()
         self.assertEqual(study_rooms.count(), 2)
-
