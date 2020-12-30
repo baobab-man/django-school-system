@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-source /Users/romeo/.bash_profile
+source /Users/romeo/.zshrc
 pyenv shell school
 ./manage.py makemigrations
 ./manage.py migrate

@@ -17,6 +17,7 @@ class TestSubjects(TestCase):
             print(subject)
 
     def test_subjects(self):
-        create_subjects()
+        subject_names = create_subjects()
+        return subject_names
 
 

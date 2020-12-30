@@ -13,5 +13,14 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="a3b2dba1-e1e9-4e91-8aaf-dc3ef2a8e0c1">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/school/settings.py</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1:3306/school</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
