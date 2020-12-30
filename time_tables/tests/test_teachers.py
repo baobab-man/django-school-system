@@ -2,6 +2,14 @@ from django.test import TestCase
 from time_tables.models import Teacher
 
 
+def create_teacher():
+    teacher_name = 'teacher'
+    teacher = Teacher.objects.create(
+        name=teacher_name
+    )
+    return teacher
+
+
 def create_teachers(start, end):
     teachers = []
     for i in range(start, end + 1):
@@ -10,13 +18,16 @@ def create_teachers(start, end):
             name=teacher_name
         )
         teachers.append(teacher)
-    print(Teacher.objects.bulk_create(teachers))
+    Teacher.objects.bulk_create(teachers)
 
 
 class TestTeachers(TestCase):
 
+    def test_create_teacher(self):
+        teacher = create_teacher()
+        self.assertNotEqual(teacher, None)
+
     def test_create_teachers(self):
-        return create_teachers(1, 10)
-        # teachers = Teacher.objects.all()
-        # for teacher in teachers:
-        #     print(teacher)
+        create_teachers(1, 10)
+        teachers = Teacher.objects.all()
+        self.assertEqual(teachers.count(), 10)
