@@ -16,7 +16,7 @@ def create_teachers(start, end):
 class TestTeachers(TestCase):
 
     def test_create_teachers(self):
-        print(create_teachers(1, 10))
+        return create_teachers(1, 10)
         # teachers = Teacher.objects.all()
         # for teacher in teachers:
         #     print(teacher)
