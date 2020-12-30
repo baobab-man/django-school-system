@@ -21,8 +21,9 @@ class Subject(models.Model):
         null=True,
         help_text='단위시간표',
     )
-    teacher = models.ManyToManyField(
+    teachers = models.ManyToManyField(
         'time_tables.Teacher',
         related_name='teacher_subjects',
     )
+
 
