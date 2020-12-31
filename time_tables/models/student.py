@@ -2,7 +2,10 @@ from django.db import models
 
 
 class Student(models.Model):
-    name = models.CharField(max_length=30, help_text='학생이름')
+    name = models.CharField(
+        max_length=30,
+        help_text='학생이름'
+    )
     study_room = models.ForeignKey(
         'time_tables.StudyRoom',
         related_name='study_room_students',
