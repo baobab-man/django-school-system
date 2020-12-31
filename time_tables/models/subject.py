@@ -8,18 +8,11 @@ class Subject(models.Model):
         MATH = 'MATH', _('MATH')
         ENGLISH = 'ENGLISH', _('ENGLISH')
         HISTORY = 'HISTORY', _('HISTORY')
-    subject_name = models.CharField(
+    name = models.CharField(
         max_length=30,
         choices=SubjectName.choices,
         default=SubjectName.MATH,
         help_text='과목',
-    )
-    time_table_record = models.ForeignKey(
-        'time_tables.TimeTableRecord',
-        related_name='time_table_record_subjects',
-        on_delete=models.SET_NULL,
-        null=True,
-        help_text='단위시간표',
     )
     teachers = models.ManyToManyField(
         'time_tables.Teacher',
