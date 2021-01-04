@@ -1,12 +1,12 @@
 from django.test import TestCase
-from time_tables.models import TimeTable, TimeTableRecord, Subject
+from time_tables.models import TimeTable, TimeTableRecord
 
 
 def create_time_table(study_room=None):
     time_table_name = 'time_table'
     time_table = TimeTable.objects.create(
         study_room=study_room,
-        time_table_name=time_table_name,
+        name=time_table_name,
     )
     return time_table
 
@@ -21,7 +21,6 @@ def create_time_table_record(teacher=None, time_table=None, subject=None):
         time_table=time_table,
         subject=subject,
     )
-    print(time_table_record)
     return time_table_record
 
 
