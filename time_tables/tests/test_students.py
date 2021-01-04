@@ -1,5 +1,5 @@
 from django.test import TestCase
-from time_tables.models import Student, StudyRoom
+from time_tables.models import Student
 from time_tables.tests.test_study_rooms import create_study_room
 
 
