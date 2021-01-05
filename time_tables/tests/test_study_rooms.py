@@ -10,10 +10,10 @@ def create_study_room():
     return study_room
 
 
-def create_study_rooms(start, end):
+def create_study_rooms(new_study_rooms_count):
     study_rooms = []
-    for i in range(start, end + 1):
-        study_room_name = 'study_room' + str(i)
+    for i in range(new_study_rooms_count):
+        study_room_name = 'study_room' + str(i+1)
         study_room = StudyRoom(
             name=study_room_name,
         )
@@ -28,6 +28,6 @@ class TestStudyRooms(TestCase):
         self.assertNotEqual(study_room, None)
 
     def test_create_study_rooms(self):
-        create_study_rooms(1, 2)
+        create_study_rooms(2)
         study_rooms = StudyRoom.objects.all()
         self.assertEqual(study_rooms.count(), 2)
