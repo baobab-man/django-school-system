@@ -12,10 +12,10 @@ def create_student(study_room=None):
     return student
 
 
-def create_students(start, end, study_room=None):
+def create_students(new_students_count, study_room=None):
     students = []
-    for i in range(start, end + 1):
-        student_name = 'student' + str(i)
+    for i in range(new_students_count):
+        student_name = 'student' + str(i+1)
         student = Student(
             name=student_name,
             study_room=study_room,
@@ -33,7 +33,7 @@ class TestStudents(TestCase):
     def test_create_students(self):
         before_student_count = Student.objects.all().count()
         new_student_count = 50
-        create_students(1, new_student_count, study_room=create_study_room())
+        create_students(new_student_count, study_room=create_study_room())
         students = Student.objects.all()
         expected_student_count = before_student_count + new_student_count
         self.assertEqual(students.count(), expected_student_count)
