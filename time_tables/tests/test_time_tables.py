@@ -24,10 +24,10 @@ def create_time_table_record(teacher=None, time_table=None, subject=None):
     return time_table_record
 
 
-def create_time_tables(start, end, study_room=None):
+def create_time_tables(new_time_tables_count, study_room=None):
     time_tables = []
-    for i in range(start, end + 1):
-        time_table_name = 'time_table' + str(i)
+    for i in range(new_time_tables_count):
+        time_table_name = 'time_table' + str(i+1)
         time_table = TimeTable(
             study_room=study_room,
             name=time_table_name,
@@ -64,7 +64,7 @@ class TestTimeTables(TestCase):
         self.assertNotEqual(time_table_record, None)
 
     def test_create_time_tables(self):
-        create_time_tables(1, 2)
+        create_time_tables(2)
         time_tables = TimeTable.objects.all()
         self.assertEqual(time_tables.count(), 2)
 
