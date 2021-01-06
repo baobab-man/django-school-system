@@ -18,5 +18,13 @@ class Subject(models.Model):
         'time_tables.Teacher',
         related_name='teacher_subjects',
     )
+    score_report = models.ForeignKey(
+        'time_tables.ScoreReport',
+        related_name='score_report_subjects',
+        on_delete=models.SET_NULL,
+        null=True,
+        help_text='성적표'
+    )
+
 
 
