@@ -37,10 +37,10 @@ def create_time_tables(new_time_tables_count, study_room=None):
 
 
 def create_time_table_records(
-        start, end, day_of_week=TimeTableRecord.DayOfWeek.MON,
+        time_table_record_count, day_of_week=TimeTableRecord.DayOfWeek.MON,
         teacher=None, time_table=None, subject=None):
     time_table_records = []
-    for period in range(start, end + 1):
+    for period in range(time_table_record_count):
         time_table_record = TimeTableRecord(
             teacher=teacher,
             time_table=time_table,
@@ -69,5 +69,5 @@ class TestTimeTables(TestCase):
         self.assertEqual(time_tables.count(), 2)
 
     def test_create_time_table_records(self):
-        time_table_records = create_time_table_records(1, 5)
+        time_table_records = create_time_table_records(5)
         self.assertEqual(time_table_records.count(), 5)
