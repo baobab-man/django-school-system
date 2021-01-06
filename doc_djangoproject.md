@@ -871,5 +871,68 @@ class Article(models.Model):
     <QuerySet [<Article: This is a test>]>
     >>> Article.objects.filter(reporter__first_name='John')
     <QuerySet [<Article: John's second story>, <Article: This is a test>]>
+
+# Aggregation
+### 집계 생성하는 두 가지 방법
+- aggregate() : Avg, Max, Min
+- annotate() : Count, Max, Min, Sum
+
+# Fixture
+- DB에 있는 model을 dump 떠서 json 형태로 저장
+  - python manage.py dumpdata [app_name].[model_name] --indent [INDENT] > [fixture_name].json
+- Person.JSON
     
+    
+    [
+      {
+        "model": "myapp.person",
+        "pk": 1,
+        "fields": {
+          "first_name": "John",
+          "last_name": "Lennon"
+        }
+      },
+      {
+        "model": "myapp.person",
+        "pk": 2,
+        "fields": {
+          "first_name": "Paul",
+          "last_name": "McCartney"
+        }
+      }
+    ]
+- Fixture
+    
+
+    - model: myapp.person
+      pk: 1
+      fields:
+        first_name: John
+        last_name: Lennon
+    - model: myapp.person
+      pk: 2
+      fields:
+        first_name: Paul
+        last_name: McCartney
+# 모델 인스턴스
+```python
+from django.db import models
+
+
+class BookManager(models.Manager):
+    def create_book(self, title):
+        book = self.create(title=title)
+        # do something with the book
+        return book
+        
+        
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    
+    objects = BookManager()
+    
+book = Book.objects.create_book("Pride and Prejudice")
+```
+
+
     

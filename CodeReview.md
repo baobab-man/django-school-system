@@ -49,8 +49,3 @@
   - 두 입력이 동일한 객체로 평가되면 true를 반환, 그렇지 않으면 false를 반환
 ##### assertContains(firstValue, text)
 - 텍스트가 응답에서 한번 이상 발생하면 참
-
-orm->row query
-database:sqlite->mysql 
-Rest api -> 그레큐엘
-js -> 타입스크립트
