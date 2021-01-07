@@ -6,9 +6,17 @@ class ScoreReport(models.Model):
         'time_tables.Student',
         on_delete=models.SET_NULL,
         null=True,
-        help_text='학생'
+        help_text='학생',
     )
     score = models.IntegerField(
         help_text='점',
-        default=0
+        default=0,
     )
+    subject = models.ForeignKey(
+        'time_tables.Subject',
+        related_name='subject_score_reports',
+        on_delete=models.SET_NULL,
+        null=True,
+        help_text='과목'
+    )
+
